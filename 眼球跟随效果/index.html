@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👀跟随效果</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div class="eyes">
+    <div class="eye"></div>
+    <div class="eye"></div>
+  </div>
+</body>
+<script>
+  const eyes = document.querySelectorAll('.eye')
+
+  document.addEventListener('mousemove', e => {
+
+    // 改变 眼睛 ::after 伪元素的样式
+    document.styleSheets[0].addRule(
+      '.eye::after',
+      `top: 15px; left: 15px`
+    )
+
+
+    eyes.forEach(eye => {
+      const clientRect = eye.getBoundingClientRect()
+      console.log(clientRect)
+      // 获取眼珠的中心点
+      const x = clientRect.right - 1/2 * clientRect.width;
+      const y = clientRect.top + 1/2 * clientRect.height;
+
+      // 计算弧度
+      const radian = Math.atan2(e.clientX - x, e.clientY -y);
+      console.log(radian)
+
+      // 换算角度
+      const angle =  270 - 180 * radian / Math.PI 
+
+      // 设置样式 (改变阴影选择角度)
+      eye.style.cssText += `
+        transform: rotate(${angle}deg);
+      `
+    })
+  })
+</script>
+</html>
