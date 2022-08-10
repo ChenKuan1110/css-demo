@@ -1,0 +1,71 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: seagreen;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+#file-uploader{
+  width: 90vw;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.drop-area{
+  height: 40vh;
+  border: 4px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  user-select: none;
+}
+
+.drop-area img{
+  width: 6rem;
+  height: 6rem;
+}
+.drop-area .tip{
+  font-size: 3rem;
+  color: #ccc;
+  padding: 1rem;
+}
+
+.task-list{
+  margin-top: 2rem;
+}
+.task{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #333;
+  padding: 1rem;
+}
+a,
+a:hover,
+a:visited
+a:link{
+  text-decoration: none;
+  color: #333
+}
+
+
+@media screen and (min-width: 700px) {
+  .tip{
+    font-size: 2rem;
+    color: red;
+  }
+}
